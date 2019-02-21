@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)https://www.xzbu.com/8/view-11490583.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta content="all" name="robots">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta http-equiv="Cache-Control" content="no-transform">
+	<meta content="index, follow" name="googlebot">
+	
+	<meta http-equiv="Content-Language" content="zh-CN">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+
+	<title>基于OpenCV 的PCB 元件缺陷检测</title>
+
+
+	<meta name="keywords" content="基于OpenCV 的PCB 元件缺陷检测">
+	<meta name="description" content="  　　摘要：随着计算机硬件性能不断提升和图像处理技术的不断发展，基于机器视觉的无接触检测技术在各个行业得到了广泛的应用，相关技术应用于PCB元件">
+	<meta name="author" content="xzbu论文网">
+	<meta name="copyright" content="xzbu论文网">
+		<link rel="stylesheet" href="./基于OpenCV 的PCB 元件缺陷检测_files/css.css">
+
+	<script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/auto_dup"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/hm.js.下載"></script><script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/pr.js.下載"></script><script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm"></script><script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm(1)"></script><script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm(2)"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/hm.js(1).下載"></script><script type="text/javascript" async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/lfjnxv.js.下載"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/osd.js.下載"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/ca-pub-0511347357645708.js.下載"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/c.js.下載"></script><link rel="preload" href="./基于OpenCV 的PCB 元件缺陷检测_files/f.txt" as="script"><script type="text/javascript" src="./基于OpenCV 的PCB 元件缺陷检测_files/f.txt"></script><link rel="preload" href="./基于OpenCV 的PCB 元件缺陷检测_files/f(1).txt" as="script"><script type="text/javascript" src="./基于OpenCV 的PCB 元件缺陷检测_files/f(1).txt"></script><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20190214/r20190131/show_ads_impl.js" as="script"></head><body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./基于OpenCV 的PCB 元件缺陷检测_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><script onload="window[&#39;cambrian_sync_loader_success1550736458457408&#39;]()" onerror="window[&#39;cambrian_sync_loader_fail_1550736458457408&#39;]()" src="./基于OpenCV 的PCB 元件缺陷检测_files/main.8b2bc869.js.下載"></script>
+	<script type="application/ld+json">
+{
+    "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+    "@id": "https://www.xzbu.com/8/view-11,490,583.htm",
+    "appid": "1605058219133585",
+    "title": "基于OpenCV 的PCB 元件缺陷检测",
+
+    "pubDate": "2018-06-12 13:08:05",
+    "upDate": "2018-06-12 13:08:05"
+}
+
+
+    </script>
+
+	<script async="" src="./基于OpenCV 的PCB 元件缺陷检测_files/f(2).txt"></script>
+	<script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-0511347357645708",
+            enable_page_level_ads: true
+        });
+	</script>
+
+	
+	
+<div class="top">
+    <div class="top_box">
+        <div class="logo"><a href="https://www.xzbu.com/8/view-11490583.htm"><img src="./基于OpenCV 的PCB 元件缺陷检测_files/a_03.png"></a></div>
+        <div class="serach">
+            <form id="top_search" name="search" action="https://www.xzbu.com/search" method="post">
+                <input type="text" placeholder="请输入关键字搜索" name="key">
+                <input type="submit" class="but" value="">
+            </form>
+        </div>
+        <div class="phone"><img src="./基于OpenCV 的PCB 元件缺陷检测_files/a_06.gif"></div>
+        <div class="time">周一至周五 | 9:00—22:00</div>
+        <div class="zx">
+            <a onclick="doyoo.util.openChat();return false;" href="https://www.xzbu.com/8/view-11490583.htm#" rel="nofollow" title="论文发表服务" looyu_bound="1">
+                <img src="./基于OpenCV 的PCB 元件缺陷检测_files/a_09.gif">
+            </a>
+        </div>
+    </div>
+
+</div>
+		<div class="banner">
+            <div class="nav">
+                <ul>
+                    <li><a href="https://www.xzbu.com/" looyu_bound="1">论文网</a></li>
+                    <li><a href="https://www.xzbu.com/1/" title="时政常识 时政评论 时事政治 政治学原理 政治学习" looyu_bound="1">政治论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/2/" title="经济学 国际经济与贸易 经济半小时 中国经济 经济学原理" looyu_bound="1">经济论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/3/" title="企业管理 人力资源管理 工程管理 管理学 行政管理" looyu_bound="1">管理论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/4/" title="历史的天空 中国历史 历史故事 历史上的今天" looyu_bound="1">历史论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/5/" title="晋江文学城 笔下文学 汉语言文学 文学作品 青春文学" looyu_bound="1">文学论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/6/" title="医学教育 临床医学 预防医学 口腔医学 医学影像学" looyu_bound="1">医学论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/7/" title="艺术人生 艺术设计 环境艺术设计 艺术作品" looyu_bound="1">艺术论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/8/" title="科技苑 军事科技 科技美学 科技创新 科技论文" looyu_bound="1">科技论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/9/" title="教育学 教育教学论文 教育教学总结 教育教学随笔 英语教育教学论文" looyu_bound="1">教育论文</a>|</li>
+                    <li><a href="https://www.xzbu.com/wiki/" title="法律知识 育儿知识 综合基础知识 酒店管理知识 礼仪知识" looyu_bound="1">知识百科</a>|</li>
+                    <li><a href="https://www.xzbu.com/baike/" title="百科全书 wiki百科 百科探秘 植物百科 儿童百科 百科网站 " looyu_bound="1">学问百科</a></li>
+                </ul>
+            </div>
+            <div class="slider">
+                <div>
+                    <a href="javascript:;" onclick="doyoo.util.openChat(&#39;g=10078088&#39;);return false;" looyu_bound="1">
+                     <img src="./基于OpenCV 的PCB 元件缺陷检测_files/a_18.gif" looyu_bound="1" style="cursor: pointer;">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+		<div class="article">
+<!--			<ul class="article_tit">
+				<li><img src="https://res.xzbu.com/v2/images/b_08.png"><a onclick="doyoo.util.openChat();return false;" href="#" rel='nofollow'></a></li>
+				<li><img src="https://res.xzbu.com/v2/images/b_03.png"><a onclick="doyoo.util.openChat();return false;" href="#" rel='nofollow'></a></li>
+				<li><img src="https://res.xzbu.com/v2/images/b_05.png"><a onclick="doyoo.util.openChat();return false;" href="#" rel='nofollow'></a></li>
+			</ul>-->
+			<div class="warp">
+				<div class="article_left">
+					<div class="article_leftTit">
+						<ul>
+							<li><a href="https://www.xzbu.com/8/view-11490583.htm"><img src="./基于OpenCV 的PCB 元件缺陷检测_files/b_14.png"></a></li>
+							<li>&nbsp;&gt;&nbsp;<a href="https://www.xzbu.com/" looyu_bound="1">中国论文网</a>&nbsp;&gt;&nbsp;</li>
+							<li><a href="https://www.xzbu.com/8/" looyu_bound="1">科技论文 </a>&nbsp;&gt;&nbsp;</li>
+							<li>基于OpenCV 的PCB 元件缺陷检测</li>
+						</ul>
+					</div>
+					<div class="article_leftBox">
+						<h2>基于OpenCV 的PCB 元件缺陷检测</h2>
+						<span>作者：未知</span>
+						<p>
+							  　　摘要：随着计算机硬件性能不断提升和图像处理技术的不断发展，基于机器视觉的无接触检测技术在各个行业得到了广泛的应用，相关技术应用于PCB元件的缺陷检测已经成为可能。利用OpenCV视觉库对有出厂的PCB元件进行预处理（阈值分割、平滑滤波、边缘处理等），然后将处理校正后的PCB图像与模板图像进行对比校对，确定匹配的细节部分，从而确定出厂PCB元件是否存在缺陷。实验表明采用OpenCV进行图像处理与传统方法相比，检测效率高，程序集成度高。 <br>　　关键词：图像处理；PCB元件；缺陷检测；OpenCV <br>　　中图分类号：TP18 文献标识码：A 文章编号：1009-3044（2015）26-0214-03 <br>　　Defect Detection of PCB Components Based on OpenCV <br>　　ZHENG Shuai-bing， JIA Xiao-jun， JI Han-hua <br>　　（College of Mathematics Physics and Information Engineering， Jiaxing University， Jiaxing 314001， China） <br>　　Abstract： With the development of the technology about computer and image processing， non-contact detecting technology based on machine vision has been widely used， and it has been becoming possible to apply the related technology in the defect detecting of PCB component. By means of the OpenCV vision library， PCB components image is processed through smoothing filter， binarization processing and edge detecting. Then， compare the processed PCB image with the standard template image to determine whether there are defects on PCB component. Experimental results show that compared to the traditional methods， using OpenCV for image processing can improve the efficiency of detection and the integration of program. <br>　　Key words： Image processing； PCB component； Defect detecting； Open CV <br>　　印刷电路板PCB（Printed Circuit Board）是电子元器件的载体，可以实现电子元器件自动插装或贴装，如CPU芯片，电解电容，电阻等。在生产过程中会出现各种各样的问题，比如油印、微蚀等，会影响到元件的工作精度和可靠性，甚至造成不可挽回的损失。所以，PCB元件的缺损检测是加工生产中必不可少的环节，具有重要意义。目前的PCB元件缺陷检测方法是人工检测，电测试和X射线测试方式[1]。但是这些方法费力、生产效率低。为了提高生产效率，提高产量，针对优化PCB元件缺陷检测，本文研究基于数字图像处理技术的检测方法。这种数字图像处理技术主要依靠OpenCV视觉库处理图像。使用OpeCV 3.0在VS 2008环境下对PCB的缺陷检测。 <br>　　1二值化检测法 <br>　　数字图像处理技术主要研究有数字化图像、图像编码、图像的增强和复原、图像描述、图像识别等[2]。图像处理方法可分为二种：第一种包括各种几何变换方法，特点是将图像通过几何方法，变换到其他频域中进行处理后，再变换到原来的域中。第二种方法是数学形态学运算，它区别于常见的频域和空域，是建立在积分几何和集合论基础上的运算。 <br>　　PCB元件是一种体积偏小、色彩单一的元器件，对检测精度有较高要求。另外，PCB元件的检测属于全面检测，注重检测速率的快慢。综合考虑图像处理须接受较好的光照及形成较高的图像质量，采用传统图像二值化检测法[3-4]。 <br>　　2 OpenCV视觉库 <br>　　OpenCV计算机视觉库是由一些基本的C函数和C++类所组成的函数库，用来实现计算机图像算法，解决复杂困难的计算机图像处理问题。该库的所有代码都经过优化，计算效率很高，主要用于对图像进行高级处理，例如特征检测与跟踪[5-6]。它的主要方向是提供良好的机器视觉接口函数，让复杂的机器视觉产品可以更好的供人们使用。OpenCV视觉库非常庞大，包含了有横跨工业产品检测、医学图像处理、安防、用户界面、摄像头标定、三维成像、机器视觉等领域的超过500个接口函数[7]。因此，它目标成为一种用于实时系统的视觉开源库。 <br>　　3 PCB元件缺陷检测过程 <br>　　3.1 检测流程 <br>　　OpenCV视觉库提供图像处理函数，对PCB元件进行平滑处理、边缘检测等全面处理，较完整地获取PCB元件中存在的缺陷，检测流程如图1所示。 <br>　　3.2 PCB元件检测过程 <br>　　3.2.1 图像去噪 <br>　　去除图像噪声的常用方法有邻域平均法均值滤波器、中值滤波、自适应维纳滤波器、小波去噪等。实验采用的是中值滤波方法，它的原理是将数字序列中某一点的值用该点一个邻域中各点值的中值替换，其主要功能是让周围像素灰度值的差比较大的像素改取与周围的像素值接近的值，从而可以消除孤立的噪声点[8]，它对脉冲噪声有良好的滤除作用，特别是在滤除噪声的同时，使边缘不被模糊。此外，中值滤波的算法比较简单，也易于实现。   　　中值滤波的方法是采用一个长度为奇数的二维滑动窗口，设定某一个时刻，对这窗口内的信号样本值按照像素值的大小进行排序。二维中值滤波输出公式为： <br>　　[g（x，y）=med{f（x-k，y-1），（k，1∈w）}] （1） <br>　　其中，[f（x，y）]，[g（x，y）]分别为未处理图像和处理后图像；W为二维模板，取以目标像素为中心的一个领域子矩阵窗口，对窗口内的像素灰度值进行排序，用数据序列的中值代替中心点的灰度值。 <br>　　OpenCV中提供的平滑滤波函数如下： <br>　　void cvSmooth（const CvArr* src， CvArr* dst， int smooth_types=CV_MEDIAN， int parameter1=3， int parameter2=0； double parameter3=0， double parameter4=0）； <br>　　其中smooth_types取以下几种值。 <br>　　CV_MEDIAN：对图像进行像素值为parameter1×parameter1的中值滤波。 <br>　　CV_BLUR_NO_SCALE：对每个像素的parameter1×parameter2领域求和。 <br>　　CV_BLUR：对每个像素parameter1×parameter2邻域求和并做尺度变换1/（parameter1×parameter2）。 <br>　　CV_GAUSSIAN：对图像进行像素值为parameter1×parameter2的高斯卷积。 <br>　　CV_BILATERAL：应用双向3x3滤波，彩色sigma=parameter1，空间sigma=parameter2。 <br>　　利用OpenCV提供的函数实现对PCB元件图像的处理，得到滤波图像，结果如图2所示。 <br>　　3.2.2 阈值分割 <br>　　使用阈值分割方法将图像有效和图像缺陷部分进行分割，提取有效部分进行处理，提高PCB图像缺陷的识别精度和准确度。这种方法特别适合用于背景占据不同灰度级的图像，不仅可以很大程度地压缩数据量，而且也简化了分析和处理步骤，提高生产效率。 <br>　　最常见的阈值分割是固定阈值分割方法，OpenCV提供了固定阈值分割方法的函数： <br>　　void cvThreshold（const CvArr* src， CvArr* dst， double threshold， double max_value， int threshold_type ）； <br>　　其中， <br>　　src：初始数组，数值为8-bit或者32-bit浮点数。 <br>　　dst：输出数组，必须与src的类型一致。 <br>　　threshold：阈值。 <br>　　max_value：使用CV_THRESH_BINARY和CV_THRESH_BINARY_INV的最大值。 <br>　　threshold_type：阈值类别。 <br>　　利用OpenCV视觉库检测阈值分割函数，实现对PCB元件图像的分割，结果如图3所示。 <br>　　3.2.3 边缘检测 <br>　　常用的一阶边缘算子有Prewitt 算子和Canny算子等。本实验采用的是Canny算子[9]。Canny算子有以下3大优点： <br>　　（1） 图像边缘信息的漏检、误检率较小，图像的检测整体效果较好。 <br>　　[SNR（f）=-wwG（-x）f（x）dxσ-wwf2（x）dx] （2） <br>　　（2） 实现高精度的定位，Location越大越好。 <br>　　[Location=-wwG'（-x）f'（x）dxσ-wwf'2（x）dx] （3） <br>　　（3） 响应次数最少，保证只有唯一像素点响应。 <br>　　[D（f'）=π-∞∞f'2（x）dx-∞∞f（x）dx12] （4） <br>　　OpenCV提供的CvCanny函数原型如下： <br>　　void cvCanny（ const CvArr* image， CvArr *edges， double threshold1， double threshold2， int aperture_size=3）； <br>　　其中， <br>　　threshold1：第一个阈值。 <br>　　threshold2：第二个阈值。 <br>　　aperture_size：算子内核大小。 <br>　　采用OpenCV提供的cvCanny函数。运用Canny算子进行PCB元件的边缘检测，实验结果如图4所示。 <br>　　在经过以上处理之后，可以将检测后的PCB元件图像与标准模板PCB图像进行匹配，匹配成功后得到函数返回值，最终确定PCB元件的缺陷。OpenCV中提供的形状比较的函数如下： <br>　　Double cvMatchShapes（ const void* object1， constvoid* object2， int method， double parameter=0 ）； <br>　　其中， <br>　　object1：第一个轮廓或灰度图像。 <br>　　object2：第二个轮廓或灰度图像。 <br>　　Method：比较方式在以下3种方式中：CV_CONTOUR_MATCH_I1， CV_CONTOURS_MATCH_I2， CV_CONTOURS_MATCH_I3。 <br>　　Parameter：数值参数，函数匹配完成后，会返回一个匹配的数值，表明匹配程度。 <br>　　利用OpenCV提供的匹配函数，可以获得相应的匹配结果，如图5所示。 <br>　　3.2.4 实验与分析 <br>　　模板的选择会影响匹配的结果，模板选得太大，对较小的缺陷不敏感；而模板选得太小，像素点采集不够，实验结果不准确，容易产生误差。实验采用[600  　　定义一个变量pcbResult，获取函数的返回值。当PCB元件没有缺陷时，pcbResult的值为0，但是，实际结果与理论存在一定的误差，经过反复试验、严格对比，使结果更加可靠，选取PCB存在缺陷的临界值为0.2。所以，当pcbResult等于0时，图像完全匹配，没有缺陷；当pcbResult小于0.2时，认为图像基本匹配，不存在缺陷或缺陷不会影响PCB的正常使用。当pcbResult大于0.2时，则表明PCB元件存在缺陷，无法匹配。实验结果如图6所示。 <br>　　4 结论 <br>　　OpenCV视觉库免费，源代码公开，具有强大的图像处理能力，能在不同平台移植使用，兼容性好，有利于减少运行成本和程序运行的可靠性。本文研究解决PCB元件缺陷的最佳方法，利用OpenCV视觉库强大的图像处理技术，结合图像滤波、边缘检等方法实现对PCB元件的缺陷检测。经实验证明，利用OpenCV对PCB元件缺陷检测是比较高效可行的方法，具有较好的效果。尤其是利用OpenCV中的函数，使原本复杂困难的图像处理问题变得简单易懂，易于上手，可见有很强的实用价值。众所周知，OpenCV具有比较好的移植性，在各个开发平台都能很好运行，未来可以将程序移植到嵌入式系统中，让检测系统消耗更少、效率更高、运行更快捷。 <br>　　参考文献： <br>　　[1] 熊光洁， 马树元. 基于机器视觉的高密度电路板缺陷检测系统[J]. 计算机测量与控制，2011，19（8）：1824-1825. <br>　　[2] 陈汗青， 万艳玲等. 数字图像处理技术研究进展[J]. 工业控制计算机，2013，（1）： 72-73 <br>　　[3] 潘忆江，黄际彦. PCB中圆形图像的自动光学检测研究[J].现代电子技术，2014，37（8）：69-70. <br>　　[4] 安宁， 林树忠. 图像处理方法研究及其应用[J]. 仪器仪表学报，2006，27（6）：792-793. <br>　　[5] 秦小文， 温志芳， 乔维维. 基于OpenCV的图像处理[J]. 电子测试，2011（7）：39-41. <br>　　[6] 方玫，喻擎苍，李华强.C++Builder 下OpenCV的数字图像处理[J].计算机工程与设计，2008，29（4）：882-883. <br>　　[7] 郭辉， 陈光. 基于OpenCV的视觉图像处理应用研究[J]. 微型机与应用，2012（21）：14-20. <br>　　[8] 王宇新，贺圆圆等.基于FPGA 的快速中值滤波算法[J].计算机应用研究，2009，26（1）：224-226. <br>　　[9] 姜玲燕，庞明勇.边缘信息诱导的图像矢量化算法[J].小型微型计算机系统.2015，1（1）：183-185. <br>　　[10] 晁越， 李中健. OpenCV图像处理编程研究[J]. 电子设计工程. 2013（10）：175-177.  
+						</p>
+					</div>
+					<script language="JavaScript1.2" src="./基于OpenCV 的PCB 元件缺陷检测_files/pc.js.下載" type="text/JavaScript"></script><style>
+.zazhi-com-cn{background-color: rgba(0,0,0,.5);display: none;z-index:99998;width:100%;height:100%;font: 12px 'Microsoft YaHei';position: fixed; top: 0; left: 0; text-indent:0; }
+.zazhi-com-cn .zoomIn{position:absolute;z-index:99999; width:0; height:0; top: 50%; left:50%;margin-left:-280px; margin-top:-270px; background-color:#fff;  border-radius:4px;-webkit-animation:.4s .1s ease both;-moz-animation:.4s .1s ease both; background:#fff;text-align:center;}
+.zazhi-com-cn .zoomIn img{border-radius:4px}
+@keyframes zoomIn{from{opacity:0;transform:scale3d(.3,.3,.3)}
+50%{opacity:1}}
+.zazhi-com-cn-top{text-indent:0; width:100%;text-align:center;padding-top: 40px;}
+.zazhi-com-cn-top span{text-indent:0; color: #414141; font-size: 30px; display: inline-block; font-weight: 700; line-height: 40px; height: 40px; width: 100%; margin-bottom: 20px;}
+.zazhi-com-cn-info{text-indent:0; color: #00a2ca;font-size: 26px;line-height: 50px;height: 50px;width: 100%;font-weight: 700;margin-bottom: 10px;}
+.zazhi-com-cn-time{text-indent:0; color: #999;font-size: 18px;line-height: 24px;height: 24px;width: 100%;padding-bottom:40px;}
+.zazhi-com-cn-from{display: inline-block;margin-top: 7px;width: 80%;border: 1px solid #00a2ca;height: 40px;line-height: 40px;overflow:hidden;}
+.zazhi-com-cn-input{width: 74%; font-size: 16px; float: left; border: none; color: #bdbdbd; line-height: 40px; padding-left: 3%;outline: none;height:40px;display:inline-block;}
+.zazhi-com-cn-submit{width: 19%;background: #00a2ca;color: #fff;text-align: center;font-size: 17px;border: 0 none;cursor: pointer;float: right;line-height: 40px;outline: none;}
+.zazhi-com-cn-submit:hover{opacity: .8;text-decoration: none;}
+.zazhi-com-cn .error{border-color:#ff2f2f;}
+.zazhi-com-cn .error .zazhi-com-cn-submit{background: #ff2f2f;}
+.zazhi-com-cn-close{position: absolute;right: -15px;top: -15px;width: 30px;height: 30px;margin-left: 0;background-image:url(https://www.xueshu.com/static/xzbu/qr/icon.png);background-position: 1px 0;}
+.zazhi-com-cn-close:hover{background-position: 30px 0;}
+.down-box{margin:20px auto;text-align: center;}
+.down-box a{width: 120px;height: 40px;line-height: 40px;display: inline-block; margin: 0 20px;color: #00a2ca;text-decoration: none;background-color: #fff; border: 1px solid #00a2ca;border-radius: 5px;text-align: left; font-size:12px;text-indent: 0;text-align: center;}
+.down-box a:hover, .down-box a.action{color: #fff;background-color: #00a2ca;}
+</style>
+<div class="zazhi-com-cn"><div class="zoomIn"><div class="zazhi-com-cn-top"><span>输入验证码，即可复制</span><div class="zazhi-com-cn-from"><input type="text" name="q" placeholder="请在这里输入六位数字验证码" class="zazhi-com-cn-input" autocomplete="off"><input type="button" value="确认" class="zazhi-com-cn-submit"></div></div><img src="./基于OpenCV 的PCB 元件缺陷检测_files/other.jpg"><div class="zazhi-com-cn-info">微信扫码关注，即可获得验证码</div><div class="zazhi-com-cn-time">免费，只需要3秒时间</div><a class="zazhi-com-cn-close" href="javascript:;" target="_self"></a></div></div>
+<div class="down-box"><a href="javascript:;" id="down-file" target="_self" looyu_bound="1">复制全文</a><a href="javascript:;" onclick="doyoo.util.openChat();" target="_self" looyu_bound="1">文秘咨询</a><a href="javascript:;" onclick="doyoo.util.openChat();" class="action" target="_self" looyu_bound="1">在线咨询</a></div>
+<script src="./基于OpenCV 的PCB 元件缺陷检测_files/jquery.min.js.下載"></script>
+<script src="./基于OpenCV 的PCB 元件缺陷检测_files/js.cookie.min.js.下載"></script>
+<script type="text/javascript">
+$(function(){
+	var codes = ['152478', '785412', '964523', '324756', '741854', '224551', '329979', '634928', '281668', '006744', '290241', '997616', '002095', '942744', '794051', '594408', '671380', '632159', '408121', '005664', '565685', '629269', '327397', '144927', '636690', '315194', '383790', '137616', '581855', '118536', '736503', '737228', '081575', '945312', '221015', '461377', '231476', '703057', '094717', '679691', '841696', '036061', '838499', '207297', '561566', '131335', '190061', '578106', '573749', '741516' ];
+	setTimeout(function(){
+		document.body.oncopy = function(){
+			var status = Cookies.get('webchat-zazhi.com.cn');
+			if(status === undefined){
+				$('.zazhi-com-cn').show().find('.zoomIn').css({width:0, height:0, marginTop:0, marginLeft:0}).animate({width:'560px', height:'540px', marginTop:'-270px', marginLeft: '-280px'}, 200);
+				return false;
+			}
+		}
+	}, 500);
+	$(document).on('click', '.zazhi-com-cn-submit', function(){
+		var key = $(this).prev().val();
+		var find = false;
+		for(j=0,len=codes.length;j<len;j++){
+			if( key==codes[j] ){
+				find = true;
+				break;
+			}
+		}
+		if( find ){
+			Cookies.set('webchat-zazhi.com.cn', 1, {expires: 30});
+			$('.zazhi-com-cn').fadeOut();
+		}
+		else{
+			$('.zazhi-com-cn-from').addClass('error');
+		}
+	});
+	$(document).on('click', '.zazhi-com-cn-close', function(){
+		$('.zazhi-com-cn').fadeOut();
+	});
+	$(document).on('click', '#down-file', function(){
+		$('.zazhi-com-cn').show().find('.zoomIn').css({width:0, height:0, marginTop:0, marginLeft:0}).animate({width:'560px', height:'540px', marginTop:'-270px', marginLeft: '-280px'}, 200);
+	});
+});
+</script>
+
+
+					<!--baidu-->
+					<script type="text/javascript">
+                        (function() {
+                            var s = "_" + Math.random().toString(36).slice(2);
+                            document.write('<div style="" id="' + s + '"></div>');
+                            (window.slotbydup = window.slotbydup || []).push({
+                                id: "u3463911",
+                                container:  s
+                            });
+                        })();
+					</script><div style="" id="_rovx5tjtph"><iframe id="iframeu3463911_0" name="iframeu3463911_0" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm.html" width="728" height="90" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:728px;height:90px" allowtransparency="true"></iframe></div>
+                    <hr>
+					<script type="text/javascript">
+                        (function() {
+                            var s = "_" + Math.random().toString(36).slice(2);
+                            document.write('<div style="" id="' + s + '"></div>');
+                            (window.slotbydup = window.slotbydup || []).push({
+                                id: "u3499403",
+                                container:  s
+                            });
+                        })();
+					</script><div style="" id="_6gei4vkofa3"><iframe id="iframeu3499403_0" name="iframeu3499403_0" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm(3).html" width="700" height="200" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:700px;height:200px" allowtransparency="true"></iframe></div>
+
+					<div id="_nyd1lbe67kb" style=""><div style="zoom:1;"><div style="zoom:1;"><div><div id="auqjwfce" style="width:0px;height:0px;text-align:left;"></div><iframe width="700" frameborder="0" height="200" scrolling="no" src="./基于OpenCV 的PCB 元件缺陷检测_files/s(1).html"></iframe></div></div></div></div><script type="text/javascript" src="./基于OpenCV 的PCB 元件缺陷检测_files/vgndhm.js.下載"></script>
+					<!--baidu-->
+
+				</div>
+				<div class="article_right">
+					<div class="article_rightTit">
+						<ul>
+							<li><a href="javascript:;" id="down-file" target="_self" looyu_bound="1">复制全文</a></li>
+							<li><a onclick="doyoo.util.openChat();return false;" href="javascript:;" rel="nofollow" looyu_bound="1">文秘咨询</a></li>
+							<li><a onclick="doyoo.util.openChat();return false;" href="javascript:;" rel="nofollow" looyu_bound="1">在线咨询</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+					<div class="advert">
+						<script type="text/javascript">
+                            (function() {
+                                var s = "_" + Math.random().toString(36).slice(2);
+                                document.write('<div style="" id="' + s + '"></div>');
+                                (window.slotbydup = window.slotbydup || []).push({
+                                    id: "u3526616",
+                                    container:  s
+                                });
+                            })();
+						</script><div style="" id="_ri5d6hwk9"><iframe id="iframeu3526616_0" name="iframeu3526616_0" src="./基于OpenCV 的PCB 元件缺陷检测_files/icsm(4).html" width="360" height="300" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:360px;height:300px" allowtransparency="true"></iframe></div>
+
+
+					</div>
+					<div class="clear"></div>
+					<div class="relevant">
+						<div class="relevant_tit"><h2>相关文章</h2></div>
+						<ul>
+							<li><a href="https://www.xzbu.com/8/view-11490583.htm" looyu_bound="1">
+								     基于OpenCV 的PCB 元...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11233869.htm" looyu_bound="1">
+								     基于AOI技术的PCB常见质量...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11778448.htm" looyu_bound="1">
+基于OpenCV的钢轨裂纹检测
+							</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11320223.htm" looyu_bound="1">
+小波变换在PCB缺陷检测中的应用
+							</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11428690.htm" looyu_bound="1">
+								     基于OpenCV图像处理的火焰...
+															</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11462727.htm" looyu_bound="1">
+								     基于OpenCV的运动目标检测...
+															</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11729683.htm" looyu_bound="1">
+								     基于OpenCV的实时动态手势...
+															</a></li>
+							<li><a href="https://www.xzbu.com/2/view-11361056.htm" looyu_bound="1">
+								     基于OpenCV的运动目标检测...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11108268.htm" looyu_bound="1">
+基于OpenCV的视觉手势识别
+							</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11236638.htm" looyu_bound="1">
+基于OPENCV的智能车牌识别系统
+							</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11246565.htm" looyu_bound="1">
+								     基于目标特征的机械零件表面缺陷...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11778490.htm" looyu_bound="1">
+基于机器视觉的钢轨缺陷检测方法综述
+							</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11753169.htm" looyu_bound="1">
+101堆乏燃料元件破损检测方法
+							</a></li>
+							<li><a href="https://www.xzbu.com/2/view-11812744.htm" looyu_bound="1">
+								     基于数字图像处理的图像缺陷检测...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11001635.htm" looyu_bound="1">
+								     基于OpenCV的桌面贴片机上...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11179936.htm" looyu_bound="1">
+								     基于图像处理的苹果表面缺陷检测...
+															</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11349597.htm" looyu_bound="1">
+								     基于照明缺陷的光源照明系统图像...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11506208.htm" looyu_bound="1">
+								     基于轮廓波变换的扬声器纸盆表面...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11289279.htm" looyu_bound="1">
+								     基于PLC的PCB数控机床电气...
+															</a></li>
+							<li><a href="https://www.xzbu.com/1/view-11335358.htm" looyu_bound="1">
+								     基于PLC的PCB数控机床电气...
+															</a></li>
+							<li><a href="https://www.xzbu.com/8/view-11205329.htm" looyu_bound="1">
+								     基于OpenCV对于浮空手势的...
+															</a></li>
+							<a class="more" href="https://www.xzbu.com/search/%E5%9F%BA%E4%BA%8EOpenCV%20%E7%9A%84PCB%20%E5%85%83%E4%BB%B6%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B" looyu_bound="1">查看更多→</a>
+						</ul>
+					</div>
+
+
+			<div class="rfixed autofixed" id="rfixed" style="top: 0px; overflow: hidden; position: fixed;">
+				<div class="rfixed_tit">
+					<h2>服务推荐</h2>
+				</div>
+				<div class="work-box">
+					<ul>
+						<li>
+							<a href="javascript:;" onclick="doyoo.util.openChat(&#39;g=10078088&#39;);return false;" looyu_bound="1">
+								<div class="item-con">
+									<h2>论文发表</h2>
+									<p>论文发表，1-3天快速审稿，1-3月见刊发表！</p>
+									<p class="more">查看更多&gt;</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" onclick="doyoo.util.openChat(&#39;g=10078088&#39;);return false;" looyu_bound="1">
+								<div class="item-con">
+									<h2>原创检测</h2>
+									<p>文章原创检测，精确、权威、快速，仅需50元起。</p>
+									<p class="more">查看更多&gt;</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" onclick="doyoo.util.openChat(&#39;g=10078088&#39;);return false;" looyu_bound="1">
+								<div class="item-con">
+									<h2>编辑指导</h2>
+									<p>编辑老师亲自指导修改，客户满意为止！</p>
+									<p class="more">查看更多&gt;</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+                autoFixed('rfixed')
+
+                function autoFixed(id) {
+                    var obj = document.getElementById(id);
+                    var _getHeight = obj.offsetTop;
+                    window.onscroll = function () {
+                        changePos(id, _getHeight);
+                    }
+                }
+                function changePos(id, height) {
+                    var obj = document.getElementById(id);
+                    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    if (scrollTop < height) {
+                        obj.style.position = 'relative';
+                    } else {
+                        obj.style.position = 'fixed';
+                    }
+                }
+			</script>
+
+				</div>
+			</div>
+			<!--<ul class="page">-->
+				<!--<li><a href=""><</a></li>-->
+				<!--<li><a href="">1</a></li>-->
+				<!--<li><a href="">2</a></li>-->
+				<!--<li><a href="">3</a></li>-->
+				<!--<li><a href="">...</a></li>-->
+				<!--<li><a href="">></a></li>-->
+			<!--</ul>-->
+			<div class="problem">
+				<div class="problem_tit"><h2>常见问题解答</h2></div>
+				<textarea placeholder="输入你的问题..."></textarea>
+			</div>
+		</div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./基于OpenCV 的PCB 元件缺陷检测_files/saved_resource.html"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_9021308299211" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./基于OpenCV 的PCB 元件缺陷检测_files/saved_resource(1).html"></iframe>
+
+	<!-- 多条广告如下脚本只需引入一次 -->
+	<script type="text/javascript" src="./基于OpenCV 的PCB 元件缺陷检测_files/c.js(1).下載" async="async" defer="defer"></script>
+<div class="footer">
+    <p>中国论文网—— 论文代发/ 行业知名品牌 电话：400-888-7501 </p>
+    <p>中国互联网违法和不良信息举报中心| 网络110上海网警在线|关于我们|闽ICP备13016544号-6</p>
+    <p>【xzbu】郑重声明：本网站资源、信息来源于网络，完全免费共享，仅供学习和研究使用，版权和著作权归原作者所有，如有不愿意被转载的情况，请通知我们删除已转载的信息。</p>
+    <p>xzbu发布此信息目的在于传播更多信息，与本网站立场无关。xzbu不保证该信息（包括但不限于文字、数据及图表）准确性、真实性、完整性等。</p>
+</div>
+
+<div style="display:none">
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5fd393c912af0d20ceb27961ae904776";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_4791697'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D4791697' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_4791697"><a href="https://www.cnzz.com/stat/website.php?web_id=4791697" target="_blank" title="站长统计" looyu_bound="1">站长统计</a></span><script src="./基于OpenCV 的PCB 元件缺陷检测_files/stat.php" type="text/javascript"></script><script src="./基于OpenCV 的PCB 元件缺陷检测_files/core.php" charset="utf-8" type="text/javascript"></script>
+
+
+
+</div>
+
+    <link href="./基于OpenCV 的PCB 元件缺陷检测_files/leyu.css" rel="stylesheet" type="text/css">
+    <div class="customerservice">
+        <ul>
+            <li class="cs1"><a onclick="doyoo.util.openChat(&#39;g=10078088&#39;);" href="javascript:;"></a></li>
+            <li class="cs2"><a onclick="doyoo.util.openChat(&#39;g=10078088&#39;);" href="javascript:;"></a></li>
+            <li class="cs3"><a onclick="doyoo.util.openChat(&#39;g=10078088&#39;);" href="javascript:;"></a></li>
+            <li class="cs4"><a onclick="doyoo.util.openChat(&#39;g=10078088&#39;);" href="javascript:;"></a></li>
+            <li class="cs5"><a href="http://www.xueshu.com/" target="_back" title="学术之家" rel="nofollow"></a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="./基于OpenCV 的PCB 元件缺陷检测_files/10095501.js.下載"></script><div id="doyoo_panel"></div>
+<div id="doyoo_monitor" style="width: 420px; height: 260px; position: fixed; top: 314px; left: 741.5px; opacity: 1; display: none; background-color: transparent;"><div id="doyoo_mon_inner" style="position:relative;width:100%;height:100%;background-image:url(https://www.xueshu.com/module/article/theme/default/static/ad/xzbu.png);-webkit-transform: translateZ(0px)"><div id="doyoo_mon_head" class="doyoo_mon_head" style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; cursor: move;">在线咨询</div><a id="doyoo_mon_accept" href="javascript:;" style="position:absolute;margin-left:5px;display:block;left:214px;bottom:60px;width:121px;height:37px;background:url() no-repeat"></a><a id="doyoo_mon_phone" href="javascript:;" style="position: absolute; margin: 0px; display: none; left: 0px; bottom: 0px; width: 0px; height: 0px; background: url(&quot;&quot;) no-repeat;"></a><div id="doyoo_mon_refuse" href="javascript:;" style="position:absolute;display:block;left:74px;bottom:60px;width:121px;height:37px;background:url() no-repeat;top:auto;right:auto;cursor:pointer"></div><div id="doyoo_mon_main" class="doyoo_mon_main" style="position:absolute;left:0px;top:0px;width:0px;height:0px"></div></div></div>
+<div id="talk99_message"></div>
+<div id="doyoo_share" style="display:none;"></div>
+<link rel="stylesheet" type="text/css" href="./基于OpenCV 的PCB 元件缺陷检测_files/oms.css">
+<script type="text/javascript" src="./基于OpenCV 的PCB 元件缺陷检测_files/oms.js.下載" charset="utf-8"></script>
+
+
+
+
+<!--anyin98-->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9f2df53c63f6099a882a97c5d75d8bfd";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+	
+
+</body><iframe id="google_shimpl" style="display: none;" src="./基于OpenCV 的PCB 元件缺陷检测_files/saved_resource(2).html"></iframe><iframe id="google_esf" name="google_esf" src="./基于OpenCV 的PCB 元件缺陷检测_files/zrt_lookup.html" data-ad-client="ca-pub-0511347357645708" style="display: none;"></iframe></html>

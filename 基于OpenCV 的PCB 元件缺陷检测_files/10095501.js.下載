@@ -1,0 +1,133 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(typeof doyoo=='undefined' || !doyoo){
+var d_genId=function(){
+var id ='',ids='0123456789abcdef';
+for(var i=0;i<32;i++){ id+=ids.charAt(Math.floor(Math.random()*16)); } return id;
+};
+
+var schema='https';
+if(location.href.indexOf('https:') == 0){
+schema = 'https';
+}
+var doyoo={
+env:{
+secure:schema=='https',
+mon:schema+'://m6815.talk99.cn/monitor',
+chat:schema+'://chat6843.talk99.cn/chat',
+file:schema+'://yun-static.soperson.com/131221',
+compId:20003303,
+confId:10095501,
+workDomain:'',
+vId:d_genId(),
+lang:'sc',
+fixFlash:1,
+fixMobileScale:0,
+subComp:29653,
+_mark:'6e7c01ec9957c2f0c9034af768c4ea685b059989851abf4b7e30e5ca0da73d55eb84b7f50668551a'
+},
+chat:{
+mobileColor:'',
+mobileHeight:80,
+mobileChatHintBottom:0,
+mobileChatHintMode:0,
+mobileChatHintColor:'',
+mobileChatHintSize:0,
+priorMiniChat:0
+}
+
+, monParam:{
+index:-1,
+preferConfig:0,
+
+style:{mbg:'https://www.xueshu.com/module/article/theme/default/static/ad/xzbu.png',mh:260,mw:420,
+elepos:'0 0 0 0 0 0 0 0 214 60 121 37 74 60 121 37 0 0 0 0',
+mbabg:'',
+mbdbg:'',
+mbpbg:''},
+
+title:'\u5728\u7ebf\u54a8\u8be2',
+text:'',
+auto:10,
+group:'10078088',
+start:'00:00',
+end:'24:00',
+mask:false,
+status:true,
+fx:1,
+mini:0,
+pos:0,
+offShow:1,
+loop:0,
+autoHide:0,
+hidePanel:0,
+miniStyle:'#00C4E8',
+miniWidth:'340',
+miniHeight:'490',
+showPhone:0,
+monHideStatus:[0,0,0],
+monShowOnly:'',
+autoDirectChat:-1,
+allowMobileDirect:0,
+minBallon:1,
+chatFollow:0,
+backCloseChat:1,
+ratio:1
+}
+
+
+
+
+,sniffer:{
+ids:'button_21.gif,zwyc.gif,a_18.gif',
+gids:'10078088,10078088,10078088'
+}
+
+};
+
+if(typeof talk99Init == 'function'){
+talk99Init(doyoo);
+}
+if(!document.getElementById('doyoo_panel')){
+var supportJquery=typeof jQuery!='undefined';
+var doyooWrite=function(html){
+document.writeln(html);
+}
+
+doyooWrite('<div id="doyoo_panel"></div>');
+
+
+doyooWrite('<div id="doyoo_monitor"></div>');
+
+
+doyooWrite('<div id="talk99_message"></div>')
+
+doyooWrite('<div id="doyoo_share" style="display:none;"></div>');
+doyooWrite('<lin'+'k rel="stylesheet" type="text/css" href="'+schema+'://yun-static.soperson.com/131221/oms.css?181204"></li'+'nk>');
+doyooWrite('<scr'+'ipt type="text/javascript" src="'+schema+'://yun-static.soperson.com/131221/oms.js?181203" charset="utf-8"></scr'+'ipt>');
+}
+}

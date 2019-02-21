@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0039)http://www.skjcsc.com/zhuanti/n670.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>基于OpenCV的高精度零件角点距离测量研究-数控机床市场网</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta name="keywords" content="OpenCV；哈里斯角点检测；摄像机标定；亚像素检测">
+	<meta name="description" content="提出了一种基于OpenCV的非接触式的测量方案，为提高零件角点的测量精度提出了新的应用方案。首先使用摄像机标定方法来矫正透镜畸变，采用了中值滤波消除噪声，从图像中获得更多的细节和信息，利用哈里斯角点检测和亚像素检测方法实现角点提取。最后，实验分析和比较了基于OpenCV的高精度零件角点测量的应用效果。">
+	<link rel="stylesheet" href="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/public.css" type="text/css">
+	<link rel="stylesheet" href="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/zhuantinewsdetail.css" type="text/css">
+	<script src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/push.js.下載"></script><script src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/hm.js.下載"></script><script type="text/javascript" src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/forbidcopy.js.下載"></script>
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  <script src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/logger.js.下載"></script><link href="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+  
+  <body oncopy="onCopyEvent()"><iframe frameborder="0" style="display: none;" src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/saved_resource.html"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0" src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/saved_resource(1).html"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="bds_more">更多...</a></li></ul><p><a href="http://www.skjcsc.com/zhuanti/n670.html#" class="goWebsite">百度分享</a></p></div></div></div>
+
+
+
+
+
+<div id="gn">
+  <div class="mid">
+    <div class="cen" id="divLogin">
+      <p>&nbsp;&nbsp;为机床工具企业提供深度市场分析&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      
+      <form id="enterpriseManageAction_enterpriseLogin" name="enterpriseManageAction_enterpriseLogin" action="http://www.skjcsc.com/enterprise/enterpriseManageAction_enterpriseLogin.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0" method="post">
+      <p>
+	      
+		      用户名：<input type="text" name="enterprise.userName" size="18" maxlength="30" value="" id="enterpriseManageAction_enterpriseLogin_enterprise_userName">&nbsp;&nbsp;
+	      	 密码： <input type="password" name="enterprise.password" size="20" maxlength="30" id="enterpriseManageAction_enterpriseLogin_enterprise_password">&nbsp;&nbsp; 
+	        <input type="submit" value="登 录" style="width:44px;">&nbsp;&nbsp;&nbsp;&nbsp; 
+	        <a href="http://www.skjcsc.com/enterprise/enterpriseManageAction_reginUI.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">免费注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	        <a href="http://www.skjcsc.com/enterprise/enterpriseManageAction_enterpriseUI.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">点击 进入企业管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        	<a href="http://www.skjcsc.com/enterprise/shenqingVipUI.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">申请VIP</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        	<a href="http://www.skjcsc.com/enterprise/enterpriseManageAction_quit.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">退出登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+       <!--  <A href="">忘记密码</A>  -->
+        
+        
+	  </p>
+	  </form>
+
+
+
+	  
+	  
+
+	  
+
+	  
+      <span>
+          <a href="http://translate.google.com/translate?hl=en&amp;sl=zh-CN&amp;tl=en&amp;u=www.skjcsc.com" target="_blank">English</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+          <a href="http://translate.google.com/translate?hl=en&amp;sl=zh-CN&amp;tl=de&amp;u=http%3A%2F%2Fwww.skjcsc.com%2F" target="_blank">German</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+          <a href="http://translate.google.com/translate?hl=en&amp;sl=zh-CN&amp;tl=ja&amp;u=http%3A%2F%2Fwww.skjcsc.com%2F">Japanese</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+          <a onclick="jscript:window.external.AddFavorite(document.location.href,document.title);" href="javascript:">添加收藏</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+      </span>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="lo">
+  <div class="logo"><a href="http://www.skjcsc.com/" title="数控机床"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/logo.jpg" alt="数控机床" width="200px" height="60px"></a></div>
+  <div class="benner-l">
+    <p>
+	     <a href="http://www.skjcsc.com/newsson/chechuang.htm" title="车床" target="_blank">车床</a>
+	    <a href="http://www.skjcsc.com/newsson/xichuang.htm" title="铣床" target="_blank">铣床</a>
+	    <a href="http://www.skjcsc.com/newsson/zuanchuang.htm" title="钻床" target="_blank">钻床</a>
+	    <a href="http://www.skjcsc.com/newsson/shukxt.htm" title="数控系统" target="_blank">数控系统</a>
+	    <a href="http://www.skjcsc.com/newsson/jiagzx.htm" title="加工中心" target="_blank">加工中心</a>
+	    <a href="http://www.skjcsc.com/newsson/duanyjc.htm" title="锻压机床" target="_blank">锻压机床</a>
+	    <a href="http://www.skjcsc.com/newsson/paoclc.htm" title="刨插拉床" target="_blank">刨插拉床</a>
+	    <a href="http://www.skjcsc.com/newsson/luowjgjc.htm" title="螺纹加工机床" target="_blank">螺纹加工机床</a>
+	    <a href="http://www.skjcsc.com/newsson/chiljgjc.htm" title="齿轮加工" target="_blank">齿轮加工</a><br>
+	    <a href="http://www.skjcsc.com/newsson/mochuang.htm" title="磨床" target="_blank">磨床</a>
+	    <a href="http://www.skjcsc.com/newsson/tangchuang.htm" title="镗床" target="_blank">镗床</a>
+	    <a href="http://www.skjcsc.com/newsson/daoju.htm" title="刀具" target="_blank">刀具</a>
+	    <a href="http://www.skjcsc.com/newsson/gongnbj.htm" title="功能部件" target="_blank">功能部件</a>
+	    <a href="http://www.skjcsc.com/newsson/peijfj.htm" title="配件附件" target="_blank">配件附件</a>
+	    <a href="http://www.skjcsc.com/newsson/jianycl.htm" title="检验测量" target="_blank">检验测量</a>
+	    <a href="http://www.skjcsc.com/newsson/jicdq.htm" title="机床电器" target="_blank">机床电器</a>
+	    <a href="http://www.skjcsc.com/newsson/tezjgjc.htm" title="特种加工" target="_blank">特种加工</a>
+	    <a href="http://www.skjcsc.com/newsson/jiqiren.htm" title="机器人" target="_blank">机器人</a>
+  </p>
+   </div>
+   <div class="benner-r">
+   <a href="http://www.skjcsc.com/ad/adAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?address=www.jtekt.com.cn&amp;adName=JTEKT" rel="nofollow" target="_blank" title="捷太格特"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/JTEKT.jpg" alt="捷太格特" width="330px" height="60px"></a>
+   </div>
+</div>
+
+
+
+<div class="so">
+  <div class="so-nr">
+    <form id="searchAction" name="searchAction" action="http://www.skjcsc.com/search/searchAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0" method="post">
+      <div class="sobd2">
+        <img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/tu10.jpg" alt="搜索" width="22" height="27">
+        <input type="text" name="key" value="" id="searchAction_key">
+      </div>
+      <div class="so-zi2">
+      	<select name="tradio" id="searchAction_tradio">
+    <option value="product">产品</option>
+    <option value="qiugou">求购</option>
+    <option value="news">资讯</option>
+    <option value="enterprise">企业</option>
+    <option value="hangye">用户频道</option>
+    <option value="exhibit">展会</option>
+    <option value="bid">招标</option>
+    <option value="invest">招商</option>
+    <option value="job">求职</option>
+    <option value="buyknows">采购问答</option>
+    <option value="ziliaoxiazai">资料下载</option>
+
+
+</select>
+
+
+      </div>
+      <div class="so-zi3">
+        <input type="submit" value="">
+      </div>
+    </form>
+
+
+
+    
+  </div>
+
+  <div class="so-nr2">
+    <font style="FONT-WEIGHT: bold; COLOR: #003">热门关键字：</font>
+    <h2><a href="http://www.skjcsc.com/"><font style="FONT-WEIGHT: bold; COLOR: #003">数控机床</font></a></h2>&nbsp;|
+    <a href="http://www.skjcsc.com/product/37.html">数控车床</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/177.html">数控系统</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/59.html">滚齿机</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/67.html">数控铣床</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/147.html">铣刀</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/119.html">主轴</a>&nbsp;|
+    <a href="http://www.skjcsc.com/product/83.html">立式加工中心</a>&nbsp;|
+ 	<a href="http://www.skjcsc.com/newsson/jiqiren.htm">机器人</a>
+    
+  </div>
+
+</div>
+
+
+
+<div id="top_line4">
+  <div class="dh_1"></div>
+  <div class="dh_2">
+  <ul class="style_1" id="dh_sy">
+      <li class="left1_1"></li>
+
+    </ul>
+    <ul class="style_1" id="dh_sy">
+      <li class="left1_1"><a href="http://www.skjcsc.com/" title="数控机床">首页</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zb">
+      <li class="left1_1"><a href="http://www.skjcsc.com/news/news.htm">资讯</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_qg">
+      <li class="left1_1"><a href="http://www.skjcsc.com/buy/buyAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">求购</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_jcxy">
+      <li class="left1_2"><a href="http://www.skjcsc.com/cncdata/cncdataAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">行业数据</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_cp">
+      <li class="left1_1"><a href="http://www.skjcsc.com/product/productAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">产品库</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_qy">
+      <li class="left1_1"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">企业库</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_rcsc">
+      <li class="left1_2"><a href="http://www.skjcsc.com/hongguanjingji/hongguanjingjiAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">宏观经济</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zhzx">
+      <li class="left1_1"><a href="http://www.skjcsc.com/secondHand/secondHandAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">二手设备</a> </li>
+    </ul>
+    <ul class="style_1" id="dh_zhzx">
+      <li class="left1_1"><a href="http://www.skjcsc.com/zhuanti/zhuantiAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">专题</a> </li>
+    </ul>
+
+    <ul class="style_1" id="dh_rcsc">
+      <li class="left1_2"><a href="http://www.skjcsc.com/magazine/magazineAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">电子杂志</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zhzx">
+      <li class="left1_1"><a href="http://www.skjcsc.com/exhibit/exhibit.htm">展会</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_gy">
+      <li class="left1_1"><a href="http://www.skjcsc.com/vidio/vidioAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">视频</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zhzx">
+      <li class="left1_1"><a href="http://www.skjcsc.com/bowen/bowenAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">博文</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_gy">
+      <li class="left1_2"><a href="http://www.skjcsc.com/surveyvote/surveyvoteAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">市场调查</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zhzx">
+      <li class="left1_1"><a href="http://www.skjcsc.com/bid/bidAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">项目</a> </li>
+
+    </ul>
+    <ul class="style_1" id="dh_zpzb">
+      <li class="left1_1"><a href="http://www.skjcsc.com/userSound/userSoundAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">用户之声</a> </li>
+
+    </ul>
+    
+    <ul class="style_1" id="dh_zpzb">
+      <li class="left1_1"><a href="http://www.skjcsc.com/ziliao/ziliaoAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">资料下载</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="hangye">
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:11pt;">用户频道:&nbsp;&nbsp;&nbsp;</font>
+	    <a href="http://www.skjcsc.com/yingyonganli/yingyonganliAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0">应用案例</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/qiche.htm">汽车</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/moju.htm">模具</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/chuanbo.htm">船舶</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/dianlishebei.htm">电工电力</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/gongchengjixie.htm">工程机械</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/hangkonghangtian.htm">航空航天</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/yiqiyibiao.htm">仪器仪表</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/tongyongjixie.htm">通用机械</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/hangye/guidaojiaotong.htm">轨道交通</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/zhuanti/14.html" style="color:#130983">发动机加工</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/zhuanti/17.html" style="color:#130983">齿轮加工</a>&nbsp;|&nbsp;
+	    <a href="http://www.skjcsc.com/zhuanti/13.html" style="color:#130983">汽轮机加工</a>
+</div>
+
+
+
+
+
+<div class="content">
+<div class="nwebnav">您现在的位置：<a href="http://www.skjcsc.com/" title="数控机床" target="_blank">数控机床市场网</a>&gt;
+<a href="http://www.skjcsc.com/zhuanti/zhuantiAction.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0" title="机床应用专题" target="_blank">专题</a>&gt;<span>高精度零件加工工艺与技术</span></div>
+
+<div class="newlist_body">
+	<div class="anewslist-left">
+		<div class="newshow_title">基于OpenCV的高精度零件角点距离测量研究</div>
+		<div class="newshow_time">2013/7/12&nbsp;&nbsp;来源：&nbsp;&nbsp;作者：中国计量学院机电工程学院 易子豐，孙坚</div>
+		<div class="newshow_fontshow" id="zoom"><p><font size="2"><strong><span>0 </span>引言</strong></font></p><p><strong><font size="2">&nbsp; </font></strong></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 机器视觉是在图像处理的基础上发展起来的新兴科学，基于机器视觉的测量是一种非接触测量技术，能够实现测量的自动化。高精度测量的关键是摄像机测量系统的标定，在零件尺寸测量中，一般选用的是短焦距定焦光学镜头，而短焦距光学镜头的非线性径向畸变是影响测量精度的主要因素，所以需要标定镜头的非线性畸变<span>[1-2]</span>。</font></p><p><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标定后从图像中提取特征点是图像的一个重要的局</font><font size="2">部特征，它在保留了图像中物体重要特征信息的同时又有效减少了信息的数据量，哈里斯角点提取方法首先定义某些算子，通过在灰度图像上寻找该算子的极值提取特征点。在文献<span>[3]</span>中提到，哈里斯角点提取方法是目前效果最好最稳定的角点检测算子，它对亮度变化和刚体几何变换有很高的重复性。</font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenCV[4-5]</span>是一个开源的计算机视觉库，自<span>1999</span>年<span>1</span>月发布<span>Alpha</span>版本开始，它就在许多领域、产品和研究成果中广泛应用，包括卫星地图和电子地图的拼接、扫描图像的对齐、医学图像去噪、制造业中的产品质量检测系统以及摄像机标定等领域。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高精度零件角点距离测量研究所实现的检测算法是基于开源的<span>OpenCV</span>。首先对摄像机进行标定，然后采用中值滤波等手段实现图像预处理，最后采用哈里斯角点检测和亚像素检测方法获取高精度角点位置。实验结果表明，检测精度高，检测效果良好，为实际问题的解决</font><font size="2">提供了新的思路。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><strong><span>1 </span>摄像机标定</strong></font></p><p><strong><font size="2">&nbsp; </font></strong></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1 </span>透镜畸变参数</font></p><p><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机器视觉中所测量的一般为近景，对于要快速生成图像的摄像机而言，必须利用大面积且弯曲的透镜，让足够多的光线能够收敛聚焦到投影点上。透镜可以聚焦足够多的光线到某个点上，使得图像的生成更加迅速，其代价就是引入了畸变<span>[6]</span>。径向畸变和切向畸变为两种主要的畸变<span>[1]</span>。对于径向畸变，成像仪某点的径向位置按下式进行调节</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcorrected = x(1+k1r 2 + k2r 4 + k3r 6) </span>（<span>1</span>）</font></p><p><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><span><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycorrected = y (1+ k1r 2 + k2r 4 + k3r 6)</font></span></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><span><font size="2">&nbsp; </font></span></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式中：（<span>x</span>，<span>y</span>）是畸变点在成像仪上的原始位置，（<span>xcorrected</span>， <span>ycorrected</span>）是校正后的新位置。<span>k1</span>和<span>k2</span>是径向畸变的系数。切向畸变是由于透镜制造上的缺陷使得透镜本身与图像平面不平行而产生的，可以用两个额外参数<span>p1</span>和<span>p2</span>来描述</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcorrected = x +[2p1 y + p2(r 2 +2x 2)] </span>（<span>3</span>）</font></p><p><font size="2"></font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ycorrected = y +[ p1(r 2 +2y 2)+2p2x] </span>（<span>4</span>）</font></p><p><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因此，<span>k1</span>，<span>k2</span>，<span>k3</span>和<span>p1</span>，<span>p2</span>构成了<span>5</span>个畸变参数。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2 </span>摄像机参数<span>[5]</span></font></p><p><font size="2"><span>&nbsp; </span></font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个二维平面上的点映射到摄像机成像仪上的映射体现了平面的单应性，如果对点<span>E</span>到成像仪上的点<span>e </span>的映射使用齐次坐标，这种映射可以用矩阵相乘的方式表达。定义<span>E ~ =[X Y Z 1]T </span>，<span>e~ =[x y 1]T </span>。则可以把单应性简单表示为</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e~= sH E ~</span>（<span>5</span>）</font></p><p><font size="2"></font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参数<span>s </span>是一个任意尺度比例，<span>H</span>由用于定位观察的物体平面的物理变换和使用摄像机内参数矩阵的投影两部分组成。物理变换部分是与观测到的图像平面相关的部分旋转<span>R</span>和部分平移<span>t </span>的影响之和。由于使用齐次坐标，可以把<span>R</span>和<span>t</span>组合到一个单一矩阵中</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; W=[R t ] </span>（<span>6</span>）</font></p><p><font size="2">&nbsp; </font></p><p align="center"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/1b43b4ec-8cde-407f-aa9e-e24a15c2888f.jpg" border="0" alt=" " width="288" height="87"></p><p align="center">&nbsp;</p><p><font size="2"><strong><span>2 </span>中值滤波</strong></font></p><p><strong><font size="2">&nbsp; </font></strong></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中值滤波主要实现过滤图像中的噪声，同时要保证图像中接插件产品信息完整。二维中值滤波<span>[7]</span>取以目标像素为中心的一个子矩阵窗口，根据需要选取窗口大小，对窗口内的像素灰度排序，取中间的一个值作为目标像素的新灰度值，其特点是较好地保护图像边缘同时去除噪声。</font></p><p><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中值滤波的窗口有很多形状，如矩形、菱形、圆形、十字形等，不同的窗口形状有不同的滤波效果。对有缓慢且较长轮廓线的物体适合用矩形或圆形，对于有尖顶角的图像适合采用十字形，针对角点的特点，需采用十字形中值滤波。</font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp; </font></p><p><font size="2"><strong><span>3 </span>提取角点和亚像素检测</strong></font></p><p><strong><font size="2">&nbsp; </font></strong></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1 </span>角点提取</font></p><p><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像预处理后，需提取有效的角点位置。首先定义</font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal" align="center"><font size="2"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/abe96a75-d1e8-406d-a287-0d1e292cb489.jpg" border="0" alt=" " width="292" height="161"></font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal" align="center"><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式中：<span>wi</span>，<span>j</span>是可以归一化的权重比例；<span>X = Ix (x + i,y + j ) </span>， <span>Y = Iy (x + i,y + j ) </span>。哈里斯定义的角点位置位于图像二阶导数的自相关矩阵有两个最大特征值的地方。哈里斯最原始的定义是将矩阵<span>H</span>（<span>p</span>）的行列式与<span>H</span>（<span>p</span>）的迹相减，再将差值同预先给定的阈值进行比较。<span>Shi</span>和<span>Tomasi</span>提出了若两个特征值中较小的一个大于最小阈值，则会得到强角点，改进的角点方法可以得到比原始哈里斯方法更好的结果<span>[4]</span>。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2 </span>亚像素检测</font></p><p><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述的角点检测只能获得像素的整数坐标值，对于高精度来说如果需要确定图像中一个尖锐的峰值点位置，峰值的位置往往都不会恰好位于一个像素正中心。需要采用亚像素检测方法，将求得的角点位置精确到亚像素级精度。</font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实际计算亚像素级的角点位置时，解的是一个点积表达式为<span>0</span>的方程组（如图<span>1</span>的两种情况，点积都为<span>0</span>），其中每一个方程都是由<span>q </span>邻域的一个点产生。搜索窗口的中心是整数坐标值的角点，并从中心点在每个方向上扩展指定的像素。这些等式构成一个可用自相关矩阵的逆来求解的线性方程组。</font></p><p><font size="2">&nbsp; </font></p><p align="center"><font size="2"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/c1126852-c38e-40fd-a33b-d58e9a479adb.jpg" border="0" alt=" " width="372" height="143"></font></p><p align="center"><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每找到一个<span>q </span>的新位置，就需要以这个新的角点作为初始点进行迭代直到满足定义的迭代终止条件。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><strong><span>4 OpenCV</span>零件角点距离</strong></font></p><p><strong><font size="2">&nbsp; </font></strong></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 测量实现<span>OpenCV</span>提供了很多摄像机标定及角点检测方面的库函数，以<span>Visual Studio 2005</span>为软件开发平台，给出零件角点间距测量算法的流程框图，如图<span>2</span>所示。</font></p><p><font size="2">&nbsp; </font></p><p align="center"><font size="2"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/4ae24358-ef93-4f8b-91d0-eacc051a7d9a.jpg" border="0" alt=" " width="467" height="182"></font></p><p align="center"><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;读取从相机中采集的多幅不同位置和角度的标准棋盘图像，采用<span>cvFindChessboardCorners( )</span>函数对输入的图像进行筛选，选出符合标定用的图像，并用<span>cvDrawChess</span>⁃<span>boardCorners( ) </span>函数在图上画出角点。用<span>cvCalibra</span>⁃数，并保存到相应的文档中。调用摄像机的内外部参</font><font size="2">数、畸变系数文档，采用<span>cvRemap( )</span>函数矫正需要检测的目标图像。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于矫正后的图像，采用<span>3×3</span>中值滤波去除图像噪声。采用<span>cvGoodFeatureToTrack( )</span>函数寻找像素级的角点位置，确定像素级角点位置后，实现亚像素级角点位</font><font size="2">置确认，获取亚像素角点坐标，根据采集的标准棋盘图像，计算像素点间的实际距离值，获取角点的距离。</font></p><p><font size="2">&nbsp; </font></p><p><font size="2"><strong><span>5 </span>实验和结果分析</strong></font></p><p><strong><font size="2">&nbsp;&nbsp; </font></strong></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依据本文阐述的角点间距测量原理和算法，在<span>Visu</span>⁃<span>al Studio 2005</span>环境下，调用<span>OpenCV2.0 </span>库函数，开发了基于<span>MFC </span>对话框结构的亚像素级的角点间距测量程序，程序经过严格测试，运行稳定，没有出现内存泄露的情况。操作界面如图<span>3</span>所示。</font></p><p><font size="2">&nbsp; </font></p><p align="center"><font size="2"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/94a35d5c-0bda-4a70-bee2-d1ea5f9d2425.jpg" border="0" alt=" " width="235" height="214"></font></p><p align="center">&nbsp;</p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选取<span>4×29</span>的标准棋盘为标定目标，棋盘格子的宽度为<span>0.1 cm</span>。从不同的距离和角度，选取<span>21</span>幅<span>656×492</span>像素的图像作为标定用图。标定得到的内参数矩阵、镜头畸变系数如表<span>1</span>所示。</font></p><p><font size="2">&nbsp; </font></p><p align="center"><font size="2"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/aa9ac57d-96d7-4352-9066-878171e92dfe.jpg" border="0" alt=" " width="367" height="132"></font></p><p align="center"><font size="2">&nbsp; </font></p><p><font size="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(xui,yui )</span>为用图像处理得到的标定点像素坐标经过一系列变换得到的图像物理坐标的理想坐标，<span>(xi,yi )</span>为世界坐标的点经过投影得到的理想状况下图像物理坐标系下的坐标。</font></p><p><font size="2"></font></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选取合适的零件图像，实现图像矫正、图像预处理、亚像素级角点检测、角点间距测量。如图<span>4</span>所示，选取角点的实际距离为<span>1.4 cm</span>的零件。</font></p><p><font size="2">&nbsp; </font></p><p align="center"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/3b6a4cb5-a23b-4261-898a-aca04315577f.jpg" border="0" alt=" " width="420" height="186"></p><p align="center"><font size="2">&nbsp; </font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如图<span>4c</span>，获取零件角点坐标分别为（<span>63.883 3</span>，<span>253.943 4</span>）和（<span>299.334 7</span>，<span>258.910 6</span>），根据相机拍摄的标定板图像可得每<span>33.6</span>个像素为<span>0.2 cm</span>，由此可得零件角点距离为<span>1.401 808 cm</span>，偏差为<span>0.001 808 cm</span>。</font></p><p style="margin: 0cm 0cm 0pt" class="MsoNormal"><font size="2"></font></p><p><font size="2"><strong><span>6 </span>小结</strong></font></p><p><strong><font size="2"></font></strong></p><p><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过实验和检测结果的分析比较，这种基于<span>OpenCV</span>的高精度零件角点间距测量方法有效地提高了测量精度，在<span>OpenCV</span>中采用该角点检测方法而编写的检测程序具有运算效率高、标定结果精度高、角点定位精度高、跨平台移植性好等特性，可以有效地应用于其他计算机视觉系统中。</font></p></div>
+		
+		<div class="yijian"><b>&nbsp;&nbsp;&nbsp;&nbsp;投稿箱：</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您有机床行业、企业相关新闻稿件发表，或进行资讯合作，欢迎联系本网编辑部，
+		邮箱：skjcsc@vip.sina.com </div>
+			<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <span class="bds_more">分享到：</span>
+        <a class="bds_tsina" title="分享到新浪微博" href="http://www.skjcsc.com/zhuanti/n670.html#">新浪微博</a>
+        <a class="bds_tqq" title="分享到腾讯微博" href="http://www.skjcsc.com/zhuanti/n670.html#">腾讯微博</a>
+        <a class="bds_renren" title="分享到人人网" href="http://www.skjcsc.com/zhuanti/n670.html#">人人网</a>
+        <a class="bds_qzone" title="分享到QQ空间" href="http://www.skjcsc.com/zhuanti/n670.html#">QQ空间</a>
+    </div>
+<!-- Baidu Button END -->
+		<div class="newshow_kuang">
+			<div class="newshow_kuang_title">
+				<div class="newshow_kuang_bt">更多本专题新闻</div>
+			</div>
+			<div class="newshow_kuang_xgxw">
+				<ul>
+				
+				  <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getNewsdetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuantiNews.zhuantiNewsId=669" target="_blank">工装系统的柔性对高精度零件精度的影响</a></li>
+				
+				  <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getNewsdetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuantiNews.zhuantiNewsId=668" target="_blank">高精度零件模内自动铆接技术的开发</a></li>
+				
+				  <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getNewsdetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuantiNews.zhuantiNewsId=667" target="_blank">高精度零件加工中的误差平均法原理及其应用</a></li>
+				
+				  <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getNewsdetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuantiNews.zhuantiNewsId=666" target="_blank">高精度零件加工方法探析</a></li>
+				
+				  <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getNewsdetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuantiNews.zhuantiNewsId=665" target="_blank">高精度零件的数控测量程序编制</a></li>
+				
+				</ul>
+			</div>
+		</div>
+		
+		<div class="newshow_kuang">
+			<div class="newshow_kuang_title">
+				<div class="newshow_kuang_bt">名企推荐</div>
+			</div>
+			<div class="newshow_kuang_hztg">
+				
+<div style="float:left; margin-left:6px; margin-top:5px;border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=shanteweike" title="山特维克可乐满" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/shanteweike.jpg" alt="山特维克可乐满"></a></div>
+<div style="float:left; margin-left:6px;  margin-top:5px; border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=hszdskjxshyxgs" title="哈斯自动数控机械(上海)有限公司" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/hasi.jpg" alt="哈斯自动数控机械(上海)有限公司"></a></div>
+<div style="float:left; margin-left:6px; margin-top:5px; border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=yi_yi123" title="西门子(中国)有限公司" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/ximenzi.jpg" alt="西门子(中国)有限公司"></a></div>
+<div style="float:left; margin-left:6px; margin-top:5px;border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=htjcshyxgs" title="哈挺机床（上海）有限公司" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/hating.jpg" alt="哈挺机床（上海）有限公司"></a></div>
+<div style="float:left; margin-left:6px; margin-top:5px;border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=bjaqxmejsfwyxzrgs" title="北京阿奇夏米尔技术服务有限责任公司" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/aqixiamier.jpg" alt="北京阿奇夏米尔技术服务有限责任公司"></a></div>
+<div style="float:left; margin-left:6px; margin-top:5px;border:solid 1px #eeeeee"><a href="http://www.skjcsc.com/enterprisefront/enterpriseFrontManageAction_getVipdescription?enterprise.userName=sxqcjxfzgfyxgs" title="陕西秦川机械发展股份有限公司" target="_blank"><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/qinchuan.jpg" alt="陕西秦川机械发展股份有限公司"></a></div>
+			</div>
+		</div>
+	
+	</div>
+	
+  <div class="newlist_right">
+    <div class="newlist_right_shipin">
+      <a href="http://www.sz-jinma.net/" target="_blank" title="苏州金马">
+      <img title="苏州金马" border="0" alt="苏州金马" src="http://img10.jic35.cn/6/20100607/634115306462031250.gif" width="270" height="130"></a>
+	</div>
+    
+    <div class="newlist_right_noic">
+      <div class="newlist_right_title">
+        <div class="newlist_right_title_bt"><span class="zi_heise14b">专题点击前十</span> </div>
+        <div class="newlist_right_more">|&nbsp;<a class="ali04" href="http://www.skjcsc.com/news/news.htm" target="_blank">更多</a> </div>
+      </div>
+      <div class="newlist_right_list">
+        <ul>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=1" target="_blank">数控系统专题</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=2" target="_blank">回眸CIMT2011</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=3" target="_blank">详解机床行业“十二五”发展规划</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=4" target="_blank">医疗行业里的机床应用</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=5" target="_blank">汽车制造业里的机床应用</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=6" target="_blank">机床在航空航天加工中的应用</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=7" target="_blank">机床工具企业2012新春寄语</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=8" target="_blank">机床与模具加工</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=9" target="_blank">CCMT2012展前专题</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhuanti/zhuantiManageAction_getDetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?zhuanti.zhuantiId=10" target="_blank">CCMT2012现场报道</a> </li>
+        
+       </ul>
+      </div>
+    </div>
+
+  <div class="newlist_right_noic">
+      <div class="newlist_right_title">
+        <div class="newlist_right_title_bt"><span class="zi_heise14b">展&nbsp;&nbsp;会</span> </div>
+        <div class="newlist_right_more">|&nbsp;<a class="ali04" href="http://www.skjcsc.com/exhibit/exhibit.htm" target="_blank">更多</a> </div>
+      </div>
+      <div class="newlist_right_list">
+      
+        <dl>
+          <dt><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/50ea182a-f463-4a67-af55-274fd475766b.jpg" width="94" height="74"> </dt>
+          <dd><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=516" target="_blank">数控机床与金属加工展</a> </dd>
+        </dl>
+        
+        <dl>
+          <dt><img src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/2c17031f-a55d-41be-88d7-e5d8f7e7aa9f.jpg" width="94" height="74"> </dt>
+          <dd><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=511" target="_blank">CGMT2018 中国（广州）国际数控机床展</a> </dd>
+        </dl>
+        
+        <ul>
+        
+          <li><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=501" target="_blank">第十八届中国国际模具技术和设备展览会（DMC2018）</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=489" target="_blank">  2018第20届大连国际机床及工模具展览会</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=469" target="_blank">2017中国国际模具技术和设备展览会（DMC2017）</a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=467" target="_blank">CGMT中国(广州)国际数控机床展 </a> </li>
+        
+          <li><a href="http://www.skjcsc.com/zhanhui/zhanhuiManageAction_getZhanhuidetail.action;jsessionid=77DDE02FD8F17596AE10E66CFCEF13A0?exhibit.exhibitId=435" target="_blank">2017第18届立嘉国际机械展览会(重庆)</a> </li>
+        
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+  
+  <div class="foot-nav">
+      <a href="http://www.skjcsc.com/aboutskjcsc/aboutus.html" target="_blank">关于我们</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/contact.html" target="_blank">联系我们</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/zazhidingyue.html" target="_blank">杂志订阅</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/huiyuanfuwu.html" target="_blank">会员服务</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/guanggao.html" target="_blank">广告服务</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/zhaopin.html" target="_blank">诚聘英才</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/yqlj.html" target="_blank">友情链接</a>|
+      <a href="http://www.skjcsc.com/aboutskjcsc/dashi.html" target="_blank">大事记</a>
+      
+  </div>
+  <div class="copyright">
+  客服热线：010-67042634&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    投稿热线：010-57729015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    广告热线：010-57729016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    传真：010-67042624&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://webscan.360.cn/" name="fe22feb53305aa07202a8da4730a5beb">360网站安全检测平台</a><br>
+    Copyright 2011 skjcsc.com,all rights reserved &nbsp;&nbsp; ICP备案号：京ICP备07000193号-1<br>
+    
+	<a href="http://www.skjcsc.com/">数控机床市场网</a> - 机床工具行业市场研究中心&nbsp;&nbsp;&nbsp;&nbsp; 
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?da91ecd1968d48d38c5a48537c28fd3e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+	
+	<script src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/stat.php" language="JavaScript"></script><script src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/core.php" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=3045371" target="_blank" title="站长统计">站长统计</a><br>
+	
+	<script language="javascript">
+	function googlesearch () {
+	var wq=document.getElementsByName("wq")[0].value;
+	var link="http://www.google.com/search?domains=www.skjcsc.com&sitesearch=www.skjcsc.com&q="+wq;
+	window.open(link); }
+	function baidusearch () {
+	var wq=document.getElementsByName("wq")[0].value;
+	var link="http://www.baidu.com/s?si=www.skjcsc.com&cl=3&ct=2097152&tn=baidulocal&word="+wq;
+	window.open(link); }
+	</script>
+	
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>   
+	
+	<input type="text" name="wq"><input type="submit" onclick="javascript:googlesearch()" value="Google 搜索">
+	<input type="submit" onclick="javascript:baidusearch()" value="Baidu 搜索"><br><br>
+	
+	
+  </div>
+</div>
+
+
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=645798" src="./基于OpenCV的高精度零件角点距离测量研究-数控机床市场网_files/bds_s_v2.js.下載"></script>
+
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+  
+
+</body></html>

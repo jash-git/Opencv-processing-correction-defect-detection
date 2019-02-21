@@ -1,0 +1,26 @@
+    var encodes=" 銆併�锛庯紱锛氾紵锛侊赴鈥︹�鈥测http://www.skjcsc.com;skjcsc.com;www.skjcsc.com数控机床市场网;skjcsc.com版权所有数控机床市场网版权所有箶锕曪箹锕楋綔锔扁�鈥擄复锕忥傅锔讹經锝;http://www.skjcsc.com/濓阜锔癸负锔搞�銆戯;富锔笺�銆嬶附锔俱�銆http://www.skjcsc.com/;夛缚锕��銆嶏箒锕傘�銆忥箖锕勶箼锕氾箾锕滐節锕炩�鈥欌http://www.skjcsc.com/;�鈥濄�銆炈嬎婏純锛狅紗锛娾�搂銆冣剸銆撯棆鈼忊柍鈻测棊http://www.skjcsc.com/鈽嗏槄鈼団梿鈻♀枲鈻;解柤銑ｂ剠藟锟ｏ伎锕夛箠锕嶏箮锕嬶http://www.skjcsc.com/;箤鈾�檪鈯曗姍鈫戔啌鈫愨啋鈫栤啑鈫欌啒鈭ワhttp://www.skjcsc.com/紡锛尖垥篃锕狅埂鈮堚墶鈮狅紳鈮も墺锛滐紴鈮壇鈭仿憋紜锛嵜椕封埆;鈭垵鈭炩埀鈭ㄢ垜鈭忊埅;鈭┾垐鈭碘埓鈯モ垹鈱掆墝鈭解垰鈮︹墽鈮掞耿锕ｏ工锕ワ功鈭熲娍銖掋彂掳鈥;筹紕锟ャ�锟狅俊锛呪剝鈩夛供锕http://www.skjcsc.com/锕彆銕溿帩銕炪弾銕°帋;銕忋弰鈼嬄も叞鈪扁叢鈪斥叴鈪碘叾鈪封吀鈪光厾鈪♀參鈪ｂ叅鈪モ叇鈪http://www.skjcsc.com/;р叏鈪┾叒拡夆拪鈷嬧拰鈷嶁拵鈷忊拹鈷戔拻鈷撯挃鈷曗挅鈷椻挊鈷欌挌鈷涒懘鈶碘懚鈶封懜鈶光懞http://www.skjcsc.com/;鈶烩懠鈶解懢鈶库拃鈷佲;拏鈷冣拕鈷呪拞鈷団憼鈶♀憿鈶ｂ懁鈶モ懄鈶р懆鈶┿垹銏°垻銏ｃ垽銏ャ垿銏с埁銏┠伱∏幟犈嵜城捗材撁┠浢惷http://www.skjcsc.com/呵斆骨柷樓毲溍济懪勁埳;♀�藱鈹�攣鈹傗攦鈹勨攨鈹;嗏攪鈹堚攭鈹娾攱鈹屸攳鈹庘攺鈹愨攽http://www.skjcsc.com/鈹掆敁鈹斺敃鈹栤敆鈹樷敊鈹氣敍鈹溾敐鈹炩敓鈹犫敗鈹⑩敚鈹も敟鈹︹;敡鈹ㄢ敥鈹敨敪鈹敮鈹扳敱鈹测敵鈹粹數鈹垛敺http://www.skjcsc.com/鈹糕敼鈹衡敾鈹尖斀鈹锯斂鈺�晛鈺傗晝鈺勨晠鈺嗏晣鈺堚晧鈺娾晪鈺愨晳鈺掆晸鈺斺晻鈺栤晽鈺樷暀鈺氣暃鈺溾暆鈺炩暉鈺犫暋鈺⑩暎鈺も暐鈺︹暓鈺ㄢ暕鈺暙鈺暛鈺http://www.skjcsc.com/暞鈺扳暠鈺测暢鈻佲杺鈻冣杽鈻呪枂鈻団枅鈻夆枈鈻嬧枌鈻嶁枎鈻忊枔鈻斺枙";
+	var enrandom=Math.random();
+	enrandom=Math.round(enrandom);//随机数
+	var codes=encodes.split(";");//用;分割一个长字符串创造出一个codes数组
+    var content=" ";//正常正文
+    var contentAfterCopy="";//拷贝后产生的正文
+    //这是一个当拷贝内容超过两层时返回的内容被截取掉了一些并在不同位置增加了公司网址的捣乱方法：
+    function onCopyEvent(){
+	    var allcontent=document.getElementById("zoom").innerText;//得到指定id的正文内容
+	    var alllen=allcontent.length;
+		content=document.selection.createRange().text;
+		var len=content.length;
+		var random=Math.random();
+		random=Math.round(random*len);
+//		contentAfterCopy=codes[enrandom]+" "+content.substr(0,random)+" "+codes[0]+" "+codes[7]+" "+codes[0]+content.substr(0,random)+" "+codes[0]+" "+codes[7]+" "+codes[0];
+		contentAfterCopy=content+"<br/><br/>摘录自<a style='color:blue;font-size:13px;' href='http://www.skjcsc.com'>数控机床市场网</a>";
+		if(len<alllen*0.2){
+		    return;
+		}else{
+		document.selection.empty();
+		//alert(contentAfterCopy);
+		window.clipboardData.setData('Text', contentAfterCopy);
+		window.clipboardData.getData("Text"); 
+		return;
+		}
+	   }

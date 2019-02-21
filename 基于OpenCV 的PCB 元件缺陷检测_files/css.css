@@ -1,0 +1,129 @@
+body{ margin:0 auto; font-size:12px; font-family: "微软雅黑",Arial, Helvetica, sans-serif; line-height:normal;}
+
+ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
+
+ul { list-style:none;}
+
+*{
+
+	margin:0px;
+
+	padding:0px;
+
+}
+
+img { border:0px;}
+
+a { color:#05a; text-decoration:none;}
+
+a:hover { color:#f00;}
+
+.clear{ clear:both;}
+.fixed {position: fixed;z-index:1;}
+
+.top{ height: 111px; width: 100%; border-top:5px solid #6ba4bc ;}
+.top .top_box{ width: 1200px; margin: 0 auto; overflow: hidden;}
+.top_box .logo{ float: left;}
+.top_box .serach{ float: right; width: 285px; height: 49px; border: 1px solid #eaeaea; box-sizing: border-box; margin-top: 33px;}
+.top_box .phone{ float: right; margin-top: 33px;}
+.top_box .serach input{ display: block; border: none; outline: none; width: 230px; height: 47px; float: left; text-indent: 15px;}
+.top_box .serach .but{ width: 47px; height: 47px; float: right; background: url(https://res.xzbu.com/v2/images/a_12.gif) center center no-repeat;}
+.top_box .time{ float: right; line-height: 111px; font-size: 20px; color: #0f213c; padding-right: 20px;}
+.top_box .zx{ float: right; margin: 33px 20px 0 0;}
+.banner{ width: 100%; height: 450px; position: relative;}
+.banner .nav{ width: 100%; height: 69px; background:rgba(0,0,0,0.5); overflow: hidden;position: absolute;}
+.banner .nav ul{ width: 100%; text-align: center;}
+.banner .nav ul li{ display: inline-block; height: 69px; transition: 0.5s; box-sizing: border-box;}
+.banner .nav ul li a{ display:inline-block; height: 13px; margin-top: 28px; line-height: 13px; font-size: 13px; color: #fff; padding: 0 20px; border-right:1px solid #fff; transition: 0.5s;}
+.banner .nav ul li:last-child a{ border: 0;}
+.banner .nav ul li:hover{ border-top:2px solid #6ba4bc;}
+.banner .nav ul li:hover a{ color: #6ba4bc; margin-top: 26px;}
+.banner .slider img{min-width:1200px;min-height: 444px;width: 100%;}
+.banner .new{ display: block; width: 100%; height: 381px;}
+.list{ width: 100%; padding-top: 45px; text-align: center;}
+.list .list_box{ width: 495px; height: 315px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.3); margin: 0 45px 45px 45px; padding-top: 15px;}
+.list_box .icon{ width: 455px; height: 119px; margin: 0 auto 0 auto; position: relative;}
+.list_box .icon .icon_left{  position: absolute; left: 0; top: 5px;  width: 101px; height: 109px; text-align: center; padding-top: 16px; box-sizing: border-box; font-size: 22px; font-weight: bold; color: #fff; line-height: 38px; z-index: 2;}
+.list_box .icon .icon_right{ position: absolute; top: 0; right: 0;}
+.list_box ul{ width: 455px; margin: 0 auto; padding-top: 15px; z-index: 1;}
+.list_box .icon .col1{ background: #6ba4bc;}
+.list_box .icon .col2{ background: #0f213c;}
+.list_box ul li{ height: 35px; line-height: 35px; border-bottom: 1px dashed #e8e8e8;}
+.list_box ul li a{ font-size: 14px; color: #595959; display: inline-block; float: left;}
+.list_box ul li .more{ display: inline-block; float: right;}
+
+.friendlink{ width: 1200px; margin: 0 auto; padding: 60px 0;}
+.friendlink .friendlink_tit{ height: 35px; border-bottom: 2px solid #6ba4bc;}
+.friendlink .friendlink_tit h2{ float: left; width: 120px; height: 35px; text-align: center; line-height: 35px; font-size: 16px; color: #fff; font-weight: normal; background: #6ba4bc;}
+.friendlink_tit p{ float: left; display: inline-block; height: 35px; line-height: 35px; margin-left: 35px; background: url(https://res.xzbu.com/v2/images/a_27.jpg) left center no-repeat; padding-left: 25px; color: #0f213c;}
+.friendlink ul{ width: 100%; padding: 25px 0 0 25px; border: 1px solid #dcdcdc; box-sizing: border-box; overflow: hidden; border-top:0 ;}
+.friendlink ul li{ height: 12px; line-height: 12px; padding: 0 25px 25px 0; float: left;}
+.friendlink ul li a{ color:#808080;}
+
+.footer{ height: 165px; padding-top: 30px; background: #333;}
+.footer p{ text-align: center; font-size: 12px; color: #fff; padding-bottom: 15px;}
+
+.article_tit{ text-align: center; margin: 5px 0 0 0;}
+.article_tit li{ display: inline-block; width: 370px; height: 108px; margin: 0 22px; box-shadow: 0 0 10px rgba(0,0,0,0.3); position: relative;}
+.article_tit li a{ position: absolute; display: block; width: 100%; height: 100%; box-sizing: border-box; left: 0; top: 0; transition: 0.5s;}
+.article_tit li img{ width: 100%; height: 100%;}
+.article_tit li a:hover{ border: 4px solid #0f668a;}
+.warp{ width: 1200px; margin: 0 auto; overflow: hidden;}
+.article_left{ float: left; width: 750px;}
+.article_leftTit{ height: 63px; border-bottom: 1px dashed #e8e7e6; padding-top: 23px; box-sizing: border-box;}
+.article_leftTit ul{ overflow: hidden;}
+.article_leftTit ul li{ float: left; height: 17px; line-height: 17px; color: #2c83a7;}
+.article_leftTit ul li a{ font-size: 14px; color: #2c83a7;}
+.article_leftTit ul li:last-child{ color: #333;}
+.article_leftBox{ width: 100%; padding-top: 20px; background: url(https://res.xzbu.com/v2/images/b_18.png) left 27px no-repeat;}
+.article_leftBox h2{ text-align: center; font-size: 24px; font-weight: bold; padding-bottom: 20px; color: #595959;}
+.article_leftBox span{ display: block; font-size: 13px; color: #808080; text-align: center; height: 13px; margin-bottom: 40px;}
+.article_leftBox p{ font-size: 12px; line-height: 35px; text-indent: 25px; color: #808080;}
+.article_right{ width: 370px; float: right;}
+.article_right .article_rightTit{ padding-top: 64px;}
+.article_right .article_rightTit ul{ width: 100%; height: 39px;background: #4d4d4d;}
+.article_right .article_rightTit ul li{ width: 120px; height: 39px; line-height: 39px; text-align: center; box-sizing: border-box; float: left;}
+.article_right .article_rightTit ul li a{ display: block; width: 100%; height: 100%; text-align: center; line-height: 39px; color: #fff; font-size: 15px; transition: 0.5s;}
+.article_right .article_rightTit ul li:nth-child(2){ border-left:1px solid #fff; border-right:1px solid #fff; }
+.article_right .article_rightTit ul li a:hover{ background: #6ba4bc;}
+.advert{ width: 370px; height: 300px; line-height: 300px; text-align: center; font-size: 40px; background: #cccccc; color: #4d4d4d; float: right; margin-top: 50px;}
+
+.advert a{ color:#4d4d4d ;}
+.relevant{ float: right; width: 370px; margin-top: 20px;}
+.relevant_tit{ height: 36px; border-bottom: 1px solid #85b3c6;}
+.relevant_tit h2{ width: 140px; height: 36px; text-indent: 30px; line-height: 36px; background:#6ba4bc url(https://res.xzbu.com/v2/images/b_22.png) 100px center no-repeat; font-size: 16px;  color: #fff;}
+.relevant ul{ width: 100%; padding: 11px 0 0 28px; box-sizing: border-box; border: 1px solid #e6e6e6; border-top:0;}
+.relevant ul li{ height: 40px; line-height: 40px; border-bottom:1px dashed #e3e3e3; text-indent: 10px; width: 270px;}
+.relevant ul li a{ font-size: 14px; color: #7a7a7a;}
+.relevant ul .more{ display: block; line-height: 64px; font-size: 14px; color: #6ba4bc; text-align: right; margin-right: 40px;}
+
+.rfixed{float: right; width: 370px; margin-top: 20px;background: #fff;}
+.rfixed_tit{ height: 36px;border-bottom: 1px solid #85b3c6;}
+.rfixed_tit h2{ width: 140px; height: 36px; text-indent: 30px; line-height: 36px; background:#6ba4bc url(https://res.xzbu.com/v2/images/b_22.png) 100px center no-repeat; font-size: 16px;  color: #fff;}
+.rfixed .work-box ul li{border:2px solid #c0dee6;margin-top: 5px;margin-bottom: 10px;border-radius: 5px;padding: 10px 20px;}
+.rfixed .work-box ul li .item-con h2{font-weight: normal;color: #333;font-size: 18px;}
+.rfixed .work-box ul li .item-con p{margin-top: 10px;font-size: 14px;color:#777;}
+.rfixed .work-box ul li .item-con .more{color:#008eb7;font-size: 12px;}
+
+.page{ margin: 40px 0; text-align: center;}
+.page li{ display: inline-block;}
+.page li a{display: block; width: 30px; height: 30px; text-align: center; line-height: 30px; background: #e6e6e6; color: #595959; transition: 0.5s;}
+.page li a:hover{ background: #6ba4bc; color: #fff;}
+
+.problem{ width: 1200px; margin: 0 auto; overflow: hidden; padding-bottom: 135px;}
+.problem .problem_tit{ width: 100%; height: 35px; border-bottom: 1px solid #6ba4bc;}
+.problem_tit h2{  background: #6ba4bc; width: 140px; height: 35px; text-align: center; line-height: 35px; color: #fff; font-size: 16px; }
+.problem textarea{ width: 100%; height: 135px; padding: 25px; box-sizing: border-box; font-size: 16px;}
+
+.main2 { float:left; width:100%; background:#f1f1f1;}
+.main2 ul{ float:left; width:100%;}
+.main2 ul li{ float:left; width:100%; line-height:40px; border-bottom: dashed 1px #CCC;  text-indent:30px; background: url(../images/a_28.jpg) no-repeat 10px 18px;}
+.main2 ul li a{ font-family:"微软雅黑"; font-size:16px; color:#212121;}
+.main2 ul li a:hover{ color:#06F;}
+.main2 ul li a span{ float:right; padding-right:20px;}
+
+.problem p{ padding-top: 29px; height: 35px;}
+
+.problem p a{ display: block; float: right; width: 115px; height: 35px; line-height: 35px; text-align: center; font-size: 16px; color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: #6ba4bc;}
+.problem p span{ display: block; float: right; padding-right: 40px; height: 35px; line-height: 35px; color: #b3b3b3; font-size: 16px;}
+.problem p span input{ width: 20px; height: 20px; background: none; outline: none; border: none; transform: translateY(4px);}

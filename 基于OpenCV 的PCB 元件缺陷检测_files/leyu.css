@@ -1,0 +1,58 @@
+	.customerservice{
+		position: fixed;
+		right: 20px;
+		top: 115px;
+		width: 68px;
+		height: 392px;
+		background-image: url(/xueshu/customerservice.png);
+		background-repeat: no-repeat;
+		background-position: -78px 0;
+		z-index: 9999;
+		font-family: sans-serif;
+	}
+	.customerservice::selection {
+		background: #219bd9;
+		color: #fff;
+	}
+	.customerservice ul{
+		margin: 67px 4px 0 4px;
+		padding: 0;
+	}
+	.customerservice ul li{
+		width: 60px;
+		height: 60px;
+		margin:0; padding: 0;
+		margin-bottom: 5px;
+		list-style: none;
+	}
+	.customerservice ul li a{
+		width: 60px;
+		height: 60px;
+		line-height: 3;
+		overflow: hidden;
+		display: inline-block;
+		-webkit-transition: none;
+		transition: none;
+		color:#333;text-decoration:none;
+	}
+	.customerservice ul li a:hover{
+		background-image: url(/xueshu/customerservice.png);
+		background-repeat: no-repeat;
+		color:#008fcc;
+		text-decoration:underline;
+	}
+	.customerservice ul li.cs1 a:hover{
+		background-position: -4px -67px;
+	}
+	.customerservice ul li.cs2 a:hover{
+		background-position: -4px -132px;
+	}
+	.customerservice ul li.cs3 a:hover{
+		background-position: -4px -197px;
+	}
+	.customerservice ul li.cs4 a:hover{
+		background-position: -4px -262px;
+	}
+	.customerservice ul li.cs5 a:hover{
+		background-position: -4px -327px;
+	}
